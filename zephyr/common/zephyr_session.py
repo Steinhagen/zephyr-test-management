@@ -2,7 +2,6 @@
 A module for Zephyr Scale session object.
 """
 import logging
-from urllib.parse import urlparse, parse_qs
 
 from requests import HTTPError, Session
 
@@ -16,8 +15,7 @@ class InvalidAuthData(Exception):
 
 class ZephyrSession:
     """
-    Zephyr Scale basic session object. The authentication and response handling logic
-    is placed here.
+    Zephyr basic session object.
 
     :param base_url: url to make requests to
     :param token: auth token
@@ -123,56 +121,3 @@ class ZephyrSession:
         :return: response json, empty str or raw response
         """
         return self._request("delete", endpoint, **kwargs)
-
-    def get_paginated(self, endpoint, params=None):
-        """
-        Get request wrapper for getting paginated data. Yields values from multiple get requests
-        responses.
-
-        :param endpoint: endpoint to make request to
-        :param params: dict with params to be passed to request
-
-        :return: generator with values from responses
-        """
-        self.logger.debug(f"Get paginated data from endpoint={endpoint} and params={params}")
-        if params is None:
-            params = {}
-
-        while True:
-            response = self.get(endpoint, params=params)
-            if "values" not in response:
-                return
-
-            yield from response.get("values", [])
-
-            if response.get("isLast") is True:
-                break
-
-            params_str = urlparse(response.get("next")).query
-            params.update(parse_qs(params_str))
-
-        return
-
-    def post_file(self, endpoint: str, file_path: str, to_files=None, **kwargs):
-        """
-        Post wrapper to send a file. Handles single file opening, sending its content and closing.
-
-        :param endpoint: endpoint to make request to
-        :param file_path: path to file to be sent
-        :param to_files: dict with files to be sent along with the main file
-
-        :return: response json, empty str or raw response
-        """
-        with open(file_path, "rb") as file:
-            files = {"file": file}
-
-            if to_files:
-                files.update(to_files)
-
-            return self._request("post", endpoint, files=files, **kwargs)
-
-
-class EndpointTemplate:
-    """Class with basic constructor for endpoint classes"""
-    def __init__(self, session: ZephyrSession):
-        self.session = session

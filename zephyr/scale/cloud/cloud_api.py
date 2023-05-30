@@ -2,10 +2,8 @@
 A module with the Zephyr Scale Cloud Api wrapper class.
 """
 import logging
-
-from zephyr.scale.zephyr_session import ZephyrSession
+from zephyr.scale.zephyr_scale_session import ZephyrScaleSession
 from zephyr.scale.cloud import endpoints
-
 
 # pylint: disable=missing-function-docstring
 class CloudApiWrapper:
@@ -19,7 +17,7 @@ class CloudApiWrapper:
 
     :param session: ZephyrSession object with auth credentials
     """
-    def __init__(self, session: ZephyrSession):
+    def __init__(self, session: ZephyrScaleSession):
         self.session = session
         self.logger = logging.getLogger(__name__)
 

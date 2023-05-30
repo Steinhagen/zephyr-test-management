@@ -3,7 +3,7 @@ A module with the Zephyr Scale Server Api wrapper class.
 """
 import logging
 
-from zephyr.scale.zephyr_session import ZephyrSession
+from zephyr.scale.zephyr_scale_session import ZephyrScaleSession
 from zephyr.scale.server import endpoints
 
 
@@ -18,7 +18,8 @@ class ServerApiWrapper:
 
     :param session: ZephyrSession object with auth credentials
     """
-    def __init__(self, session: ZephyrSession):
+    """Zephyr Scale Server Api wrapper"""
+    def __init__(self, session: ZephyrScaleSession):
         self.session = session
         self.logger = logging.getLogger(__name__)
 
