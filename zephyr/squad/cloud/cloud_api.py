@@ -21,9 +21,9 @@ class CloudApiWrapper:
         self.session = session
         self.logger = logging.getLogger(__name__)
 
-    # @property
-    # def test_cases(self):
-    #     return endpoints.TestCaseEndpoints(self.session)
+    @property
+    def test_cases(self):
+        return endpoints.TestCaseEndpoints(self.session)
 
     # @property
     # def test_cycles(self):
