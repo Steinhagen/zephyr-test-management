@@ -15,8 +15,9 @@ This project is a fork of nassauwinter's [zephyr-python-api](https://github.com/
 For more detailed information please see [the project's documentation](https://zephyr-test-management.readthedocs.io/en/latest/index.html).
 
 To be done:
-* More usage examples
-* Tests, tests and tests for gods of testing
+* Zephyr Squad Cloud support
+* More usage examples for cloud versions
+* Increase the tests coverage
 * Convenient docs
 * Implementing higher level wrappers representing Test Case, Test Cycle, etc.
 
