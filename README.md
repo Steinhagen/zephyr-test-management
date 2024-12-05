@@ -1,16 +1,18 @@
-# Zephyr-python-api
+# Zephyr Test Management
 
 
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/zephyr-python-api)
-![PyPI](https://img.shields.io/pypi/v/zephyr-python-api)
-![PyPI - License](https://img.shields.io/pypi/l/zephyr-python-api)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/zephyr-test-management)
+![PyPI](https://img.shields.io/pypi/v/zephyr-test-management)
+![PyPI - License](https://img.shields.io/pypi/l/zephyr-test-management)
 
 ### Project description
 This is a set of wrappers for both Zephyr Scale and Zephyr Squad (TM4J) REST APIs.
 This means you can interact with Zephyr without GUI, access it with python code and create
 automation scripts for your every day interactions.
 
-For more detailed information please see [the project's documentation](https://zephyr-python-api.readthedocs.io/en/latest/index.html).
+This project is a fork of nassauwinter's [zephyr-python-api](https://github.com/nassauwinter/zephyr-python-api).
+
+For more detailed information please see [the project's documentation](https://zephyr-test-management.readthedocs.io/en/latest/index.html).
 
 To be done:
 * More usage examples
@@ -21,7 +23,7 @@ To be done:
 ## Installation
 
 ```
-pip install zephyr-python-api
+pip install zephyr-test-management
 ```
 
 ## Example usage
