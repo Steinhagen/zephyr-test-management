@@ -55,13 +55,14 @@ class TestCaseEndpoints(EndpointTemplate):
     #     json.update(kwargs)
     #     return self.session.post(Paths.CASES, json=json)
 
-    # def get_test_case(self, test_case_key: str):
-    #     """Returns a test case for the given key
+    def get_test_case(self, test_case_key: str):
+        """
+        Returns a test case for the given key.
 
-    #     :param test_case_key: The key of the test case
-    #     :return: dict with response body
-    #     """
-    #     return self.session.get(Paths.CASE_KEY.format(test_case_key))
+        :param test_case_key: The key of the test case
+        :return: dict with response body
+        """
+        return self.session.get(Paths.CASE_KEY.format(test_case_key))
 
     # def update_test_case(self,
     #                      test_case_key: str,
@@ -755,9 +756,9 @@ class TestCaseEndpoints(EndpointTemplate):
 #                                 headers=headers)
 
 
-# class HealthcheckEndpoints(EndpointTemplate):
-#     """Api wrapper for "Healthcheck" endpoints"""
+class HealthcheckEndpoints(EndpointTemplate):
+    """Api wrapper for "Healthcheck" endpoints"""
 
-#     def get_health(self):
-#         """Check the health of this API."""
-#         return self.session.get(Paths.HEALTHCHECK)
+    def get_health(self):
+        """Check the health of this API."""
+        return self.session.get(Paths.HEALTHCHECK)

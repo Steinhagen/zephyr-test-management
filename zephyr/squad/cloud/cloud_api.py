@@ -69,6 +69,6 @@ class CloudApiWrapper:
     # def automations(self):
     #     return endpoints.AutomationEndpoints(self.session)
 
-    # @property
-    # def healthcheck(self):
-    #     return endpoints.HealthcheckEndpoints(self.session)
+    @property
+    def healthcheck(self):
+        return endpoints.HealthcheckEndpoints(self.session)
