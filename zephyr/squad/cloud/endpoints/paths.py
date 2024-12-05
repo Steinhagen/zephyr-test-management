@@ -8,7 +8,7 @@ class CloudPaths:
     """
     # Test Cases
     CASES = "testcases"
-    # CASE_KEY = "testcases/{}"
+    CASE_KEY = "testcases/{}"
     # CASE_LINKS = "testcases/{}/links"
     # CASE_ISSUES = "testcases/{}/links/issues"
     # CASE_WEBLINKS = "testcases/{}/links/weblinks"
@@ -73,5 +73,5 @@ class CloudPaths:
     # AUT_JUNIT = "automations/executions/junit"
     # AUT_CASES = "automations/testcases"
 
-    # # Healthcheck
-    # HEALTHCHECK = "healthcheck"
+    # Healthcheck
+    HEALTHCHECK = "healthcheck"
