@@ -111,40 +111,40 @@ class TestCaseEndpoints(EndpointTemplate):
         return self.session.post(Paths.CASE_WEBLINKS.format(test_case_key),
                                  json=json)
 
-    # def get_test_script(self, test_case_key: str):
-    #     """Returns the test script for the given test case"""
-    #     return self.session.get(Paths.CASE_SCRIPT.format(test_case_key))
+    def get_test_script(self, test_case_key: str):
+        """Returns the test script for the given test case"""
+        return self.session.get(Paths.CASE_SCRIPT.format(test_case_key))
 
-    # def create_test_script(self, test_case_key: str, script_type: str, text: str):
-    #     """
-    #     Creates or updates the test script for a test case. If the test case currently
-    #     has a sequence of test steps assigned to it, these will be implicitly removed.
-    #     """
-    #     json = {"type": script_type, "text": text}
-    #     return self.session.post(Paths.CASE_SCRIPT.format(test_case_key),
-    #                              json=json)
+    def create_test_script(self, test_case_key: str, script_type: str, text: str):
+        """
+        Creates or updates the test script for a test case. If the test case currently
+        has a sequence of test steps assigned to it, these will be implicitly removed.
+        """
+        json = {"type": script_type, "text": text}
+        return self.session.post(Paths.CASE_SCRIPT.format(test_case_key),
+                                 json=json)
 
-    # def get_test_steps(self, test_case_key: str, **kwargs):
-    #     """
-    #     Returns the test steps for the given test case. Provides a paged response,
-    #     with 100 items per page.
-    #     """
-    #     return self.session.get_paginated(Paths.CASE_STEPS.format(test_case_key),
-    #                                       params=kwargs)
+    def get_test_steps(self, test_case_key: str, **kwargs):
+        """
+        Returns the test steps for the given test case. Provides a paged response,
+        with 100 items per page.
+        """
+        return self.session.get_cloud_paginated(Paths.CASE_STEPS.format(test_case_key),
+                                                params=kwargs)
 
-    # def post_test_steps(self, test_case_key: str, mode: str, items: list):
-    #     """
-    #     Assigns a series of test steps to a test case, appending them to any existing
-    #     sequence of test steps. A maximum of 100 steps can be posted per request. Consumers
-    #     should not attempt to parallelize this operation, as the order of the steps is defined
-    #     by the input order. If this endpoint is called on a test case that already has
-    #     a plain text or BDD test script, that test script will implicitly be removed.
-    #     All required step custom fields should be present in the request.
-    #     """
-    #     json = {"mode": mode,
-    #             "items": items}
-    #     return self.session.post(Paths.CASE_STEPS.format(test_case_key),
-    #                              json=json)
+    def post_test_steps(self, test_case_key: str, mode: str, items: list):
+        """
+        Assigns a series of test steps to a test case, appending them to any existing
+        sequence of test steps. A maximum of 100 steps can be posted per request. Consumers
+        should not attempt to parallelize this operation, as the order of the steps is defined
+        by the input order. If this endpoint is called on a test case that already has
+        a plain text or BDD test script, that test script will implicitly be removed.
+        All required step custom fields should be present in the request.
+        """
+        json = {"mode": mode,
+                "items": items}
+        return self.session.post(Paths.CASE_STEPS.format(test_case_key),
+                                 json=json)
 
 
 # class TestCycleEndpoints(EndpointTemplate):
@@ -573,16 +573,16 @@ class TestCaseEndpoints(EndpointTemplate):
 #         return self.session.get(Paths.PROJECTS_KEY.format(project_id_or_key))
 
 
-# class LinkEndpoints(EndpointTemplate):
-#     """Api wrapper for "Link" endpoints"""
+class LinkEndpoints(EndpointTemplate):
+    """Api wrapper for "Link" endpoints"""
 
-#     def delete_link(self, link_id: int):
-#         """Deletes a link for the given ID.
+    def delete_link(self, link_id: int):
+        """Deletes a link for the given ID.
 
-#         :param link_id: The id of a link to delete
-#         :return: dict with response body
-#         """
-#         return self.session.delete(Paths.LINKS_ID.format(link_id))
+        :param link_id: The id of a link to delete
+        :return: dict with response body
+        """
+        return self.session.delete(Paths.LINKS_ID.format(link_id))
 
 
 # class IssueLinksEndpoints(EndpointTemplate):
