@@ -29,31 +29,32 @@ class TestCaseEndpoints(EndpointTemplate):
         """
         return self.session.get_cloud_paginated(Paths.CASES, params=kwargs)
 
-    # def create_test_case(self, project_key: str, name: str, **kwargs):
-    #     """Creates a test case. Fields priorityName and statusName will be set to
-    #     default values if not informed. Default values are usually “Normal”
-    #     for priorityName and “Draft” for statusName. All required test case custom
-    #     fields should be present in the request.
+    def create_test_case(self, project_key: str, name: str, **kwargs):
+        """Creates a test case. Fields priorityName and statusName will be set to
+        default values if not informed. Default values are usually “Normal”
+        for priorityName and “Draft” for statusName. All required test case custom
+        fields should be present in the request.
 
-    #     :param project_key: Jira project key
-    #     :param name: test case name
+        :param project_key: Jira project key
+        :param name: test case name
 
-    #     Keyword arguments:
-    #     :keyword objective: A description of the objective
-    #     :keyword precondition: Any conditions that need to be met
-    #     :keyword estimatedTime: Estimated duration in milliseconds
-    #     :keyword componentId: ID of a component from Jira
-    #     :keyword priorityName: The priority name
-    #     :keyword statusName: The status name
-    #     :keyword folderId: ID of a folder to place the entity within
-    #     :keyword ownerId: Atlassian Account ID of the Jira user
-    #     :keyword labels: Array of labels associated to this entity
-    #     :return: dict with response body
-    #     """
-    #     json = {"projectKey": project_key,
-    #             "name": name}
-    #     json.update(kwargs)
-    #     return self.session.post(Paths.CASES, json=json)
+        Keyword arguments:
+        :keyword objective: A description of the objective
+        :keyword precondition: Any conditions that need to be met
+        :keyword estimatedTime: Estimated duration in milliseconds
+        :keyword componentId: ID of a component from Jira
+        :keyword priorityName: The priority name
+        :keyword statusName: The status name
+        :keyword folderId: ID of a folder to place the entity within
+        :keyword ownerId: Atlassian Account ID of the Jira user
+        :keyword labels: Array of labels associated to this entity
+        :keyword customFields: Multi-line text fields should denote a new line with the <br> syntax.
+        :return: dict with response body
+        """
+        json = {"projectKey": project_key,
+                "name": name}
+        json.update(kwargs)
+        return self.session.post(Paths.CASES, json=json)
 
     def get_test_case(self, test_case_key: str):
         """
@@ -64,38 +65,38 @@ class TestCaseEndpoints(EndpointTemplate):
         """
         return self.session.get(Paths.CASE_KEY.format(test_case_key))
 
-    # def update_test_case(self,
-    #                      test_case_key: str,
-    #                      test_case_id: int,
-    #                      name: str,
-    #                      project_id: int,
-    #                      priority_id: int,
-    #                      status_id: int,
-    #                      **kwargs):
-    #     """Updates an existing test case.
+    def update_test_case(self,
+                         test_case_key: str,
+                         test_case_id: int,
+                         name: str,
+                         project_id: int,
+                         priority_id: int,
+                         status_id: int,
+                         **kwargs):
+        """Updates an existing test case.
 
-    #     :param test_case_key: The key of the test case
-    #     :param test_case_id: integer id of the test
-    #     :param name: test case name
-    #     :param project_id: project id
-    #     :param priority_id: priority id
-    #     :param status_id: status id
+        :param test_case_key: The key of the test case
+        :param test_case_id: integer id of the test
+        :param name: test case name
+        :param project_id: project id
+        :param priority_id: priority id
+        :param status_id: status id
 
-    #     :return: dict with response body
-    #     """
-    #     json = {"id": test_case_id,
-    #             "key": test_case_key,
-    #             "name": name,
-    #             "project": {"id": project_id},
-    #             "priority": {"id": priority_id},
-    #             "status": {"id": status_id}}
-    #     json.update(kwargs)
-    #     return self.session.put(Paths.CASE_KEY.format(test_case_key),
-    #                             json=json)
+        :return: dict with response body
+        """
+        json = {"id": test_case_id,
+                "key": test_case_key,
+                "name": name,
+                "project": {"id": project_id},
+                "priority": {"id": priority_id},
+                "status": {"id": status_id}}
+        json.update(kwargs)
+        return self.session.put(Paths.CASE_KEY.format(test_case_key),
+                                json=json)
 
-    # def get_links(self, test_case_key: str):
-    #     """Returns links for a test case with specified key"""
-    #     return self.session.get(Paths.CASE_LINKS.format(test_case_key))
+    def get_links(self, test_case_key: str):
+        """Returns links for a test case with specified key."""
+        return self.session.get(Paths.CASE_LINKS.format(test_case_key))
 
     # def create_issue_links(self, test_case_key: str, issue_id: int):
     #     """Creates a link between a test case and a Jira issue"""

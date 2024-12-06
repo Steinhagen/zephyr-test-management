@@ -9,7 +9,7 @@ class CloudPaths:
     # Test Cases
     CASES = "testcases"
     CASE_KEY = "testcases/{}"
-    # CASE_LINKS = "testcases/{}/links"
+    CASE_LINKS = "testcases/{}/links"
     # CASE_ISSUES = "testcases/{}/links/issues"
     # CASE_WEBLINKS = "testcases/{}/links/weblinks"
     # CASE_VERS = "testcases/{}/versions"
