@@ -7,7 +7,7 @@ from .endpoints import (TestCaseEndpoints,
 #                         PriorityEndpoints,
 #                         EnvironmentEndpoints,
 #                         ProjectEndpoints,
-#                         LinkEndpoints,
+                        LinkEndpoints,
 #                         IssueLinksEndpoints,
 #                         AutomationEndpoints,
                         HealthcheckEndpoints)
