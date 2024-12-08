@@ -82,7 +82,7 @@ persistent=yes
 
 # Minimum Python version to use for version dependent checks. Will default to
 # the version used to run pylint.
-py-version=3.8
+py-version=3.6
 
 # Discover python modules and packages in the file system subtree.
 recursive=no
@@ -451,6 +451,9 @@ max-locals=15
 
 # Maximum number of parents for a class (see R0901).
 max-parents=7
+
+# Maximum number of positional arguments.
+max-positional-arguments=7
 
 # Maximum number of public methods for a class (see R0904).
 max-public-methods=30
