@@ -18,7 +18,6 @@ class ServerApiWrapper:
 
     :param session: ZephyrSession object with auth credentials
     """
-    """Zephyr Scale Server Api wrapper"""
     def __init__(self, session: ZephyrScaleSession):
         self.session = session
         self.logger = logging.getLogger(__name__)

@@ -25,8 +25,7 @@ class ZephyrScaleSession(ZephyrSession):
             response = self.get(endpoint, params=params)
             if "values" not in response:
                 return
-            for value in response.get("values", []):
-                yield value
+            yield from response.get("values", [])
             if response.get("isLast") is True:
                 break
             params_str = urlparse(response.get("next")).query

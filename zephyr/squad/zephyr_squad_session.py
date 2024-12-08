@@ -39,8 +39,7 @@ class ZephyrSquadSession(ZephyrSession):
             response = self.get(endpoint, params=params)
             if "executions" not in response or not response.get("executions"):
                 return
-            for execution in response.get("executions"):
-                yield execution
+            yield from response.get("executions")
             if response.get("linksNew")[-1] == response.get("currentIndex") or \
                 response.get("maxResultAllowed") + response.get("offset", 0) \
                     >= response.get("totalCount"):
