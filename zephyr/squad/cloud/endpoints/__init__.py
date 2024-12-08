@@ -8,6 +8,6 @@ from .endpoints import (TestCaseEndpoints,
 #                         EnvironmentEndpoints,
 #                         ProjectEndpoints,
                         LinkEndpoints,
-#                         IssueLinksEndpoints,
+                        IssueLinksEndpoints,
 #                         AutomationEndpoints,
                         HealthcheckEndpoints)

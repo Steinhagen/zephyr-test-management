@@ -585,21 +585,21 @@ class LinkEndpoints(EndpointTemplate):
         return self.session.delete(Paths.LINKS_ID.format(link_id))
 
 
-# class IssueLinksEndpoints(EndpointTemplate):
-#     """
-#     Api wrapper for "Issue Links" endpoints
+class IssueLinksEndpoints(EndpointTemplate):
+    """
+    Api wrapper for "Issue Links" endpoints
 
-#     Operations related to coverage of issue links.
-#     """
+    Operations related to coverage of issue links.
+    """
 
-#     def get_test_cases(self, issue_key: str):
-#         """
-#         Get test case keys and versions linked to the given Jira issue.
+    def get_test_cases(self, issue_key: str):
+        """
+        Get test case keys and versions linked to the given Jira issue.
 
-#         :param issue_key: The key of the Jira issue
-#         :return: dict with response body
-#         """
-#         return self.session.get(Paths.ISLINKS_CASES.format(issue_key))
+        :param issue_key: The key of the Jira issue
+        :return: dict with response body
+        """
+        return self.session.get(Paths.ISLINKS_CASES.format(issue_key))
 
 #     def get_test_cycles(self, issue_key: str):
 #         """

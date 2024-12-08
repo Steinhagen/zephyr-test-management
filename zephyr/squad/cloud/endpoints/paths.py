@@ -59,8 +59,8 @@ class CloudPaths:
     # Links
     LINKS_ID = "links/{}"
 
-    # # Issue Links
-    # ISLINKS_CASES = "issuelinks/{}/testcases"
+    # Issue Links
+    ISLINKS_CASES = "issuelinks/{}/testcases"
     # ISLINKS_CYCLES = "issuelinks/{}/testcycles"
     # ISLINKS_PLANS = "issuelinks/{}/testplans"
     # ISLINKS_EXECS = "issuelinks/{}/executions"
