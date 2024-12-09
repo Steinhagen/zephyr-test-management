@@ -1,13 +1,15 @@
-from .endpoints import (TestCaseEndpoints,
-                        TestCycleEndpoints,
-                        TestPlanEndpoints,
-                        TestExecutionEndpoints,
-                        FolderEndpoints,
-                        StatusEndpoints,
-                        PriorityEndpoints,
-                        EnvironmentEndpoints,
-                        ProjectEndpoints,
-                        LinkEndpoints,
-                        IssueLinksEndpoints,
-                        AutomationEndpoints,
-                        HealthcheckEndpoints)
+from .endpoints import (
+    EndpointTemplate,
+    TestCaseEndpoints,
+    TestCycleEndpoints,
+    TestExecutionEndpoints,
+    FolderEndpoints,
+    StatusEndpoints,
+    PriorityEndpoints,
+    EnvironmentEndpoints,
+    ProjectEndpoints,
+    LinkEndpoints,
+    IssueLinksEndpoints,
+    AutomationEndpoints,
+    HealthcheckEndpoints
+)

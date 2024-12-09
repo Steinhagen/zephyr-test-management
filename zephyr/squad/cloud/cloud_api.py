@@ -13,7 +13,7 @@ class CloudApiWrapper:
     These wrapper groups are represented by the properties of the class.
 
     For more details on the API endpoints see docs:
-    https://support.smartbear.com/zephyr-scale-cloud/api-docs/
+    https://smartbear.portal.swaggerhub.com/zephyr-squad/
 
     :param session: ZephyrSession object with auth credentials
     """
@@ -28,10 +28,6 @@ class CloudApiWrapper:
     @property
     def test_cycles(self):
         return endpoints.TestCycleEndpoints(self.session)
-
-    @property
-    def test_plans(self):
-        return endpoints.TestPlanEndpoints(self.session)
 
     @property
     def test_executions(self):

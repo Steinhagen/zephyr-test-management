@@ -3,7 +3,7 @@ A module with the Zephyr Scale Cloud Api wrapper class.
 """
 import logging
 from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
-from zephyr.common.cloud import endpoints
+from zephyr.scale.cloud import endpoints
 
 # pylint: disable=missing-function-docstring,duplicate-code
 class CloudApiWrapper:

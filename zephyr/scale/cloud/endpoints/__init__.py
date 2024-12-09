@@ -1,6 +1,5 @@
 from zephyr.common.cloud.endpoints.endpoints import(
     TestCycleEndpoints,
-    TestPlanEndpoints,
     TestExecutionEndpoints,
     FolderEndpoints,
     StatusEndpoints,
@@ -8,11 +7,12 @@ from zephyr.common.cloud.endpoints.endpoints import(
     EnvironmentEndpoints,
     ProjectEndpoints,
     LinkEndpoints,
-    IssueLinksEndpoints,
     AutomationEndpoints,
     HealthcheckEndpoints
 )
 
 from .endpoints import (
-    TestCaseEndpoints
+    ScaleTestCaseEndpoints as TestCaseEndpoints,
+    TestPlanEndpoints,
+    ScaleIssueLinksEndpoints as IssueLinksEndpoints
 )

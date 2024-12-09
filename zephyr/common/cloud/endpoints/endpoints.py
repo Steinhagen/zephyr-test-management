@@ -248,78 +248,6 @@ class TestCycleEndpoints(EndpointTemplate):
                                  json=json)
 
 
-class TestPlanEndpoints(EndpointTemplate):
-    """Api wrapper for "Test Plan" endpoints"""
-
-    def get_test_plans(self, **kwargs):
-        """Retrieves all test plans. Query parameters can be used to filter the results.
-
-        Keyword arguments:
-        :keyword projectKey: Jira project key filter
-        :keyword maxResults: A hint as to the maximum number of results to return in each call
-        :keyword startAt: Zero-indexed starting position. Should be a multiple of maxResults
-        :return: dict with response body
-        """
-        return self.session.get_paginated(Paths.PLANS, params=kwargs)
-
-    def create_test_plan(self, project_key: str, name: str, **kwargs):
-        """Creates a test plan. All required test plan custom fields
-         should be present in the request.
-
-        :param project_key: Jira project key
-        :param name: test plan name
-        :return: dict with response body
-        """
-        json = {"projectKey": project_key,
-                "name": name}
-        json.update(kwargs)
-        return self.session.post(Paths.PLANS, json=json)
-
-    def get_test_plan(self, test_plan_key: Union[str, int]):
-        """
-        Returns a test plan for the given id or key.
-
-        :param test_plan_key: The ID or key of the test plan
-        :return: dict with response body
-        """
-        return self.session.get(Paths.PLAN_KEY.format(test_plan_key))
-
-    def create_web_links(self, test_plan_key: Union[str, int], url: str, description: str):
-        """
-        Creates a link between a test plan and a generic URL.
-
-        :param test_plan_key: The ID or key of the test plan
-        :param url: The web link URL
-        :param description: The link description
-        :return: dict with response body
-        """
-        json = {"url": url, "description": description}
-        return self.session.post(Paths.PLAN_WEBLINKS.format(test_plan_key),
-                                 json=json)
-
-    def create_issue_link(self, test_plan_key: Union[str, int], issue_id: int):
-        """
-        Creates a link between a test plan and a Jira issue.
-
-        :param test_plan_key: The ID or key of the test plan
-        :param issue_id: The issue ID
-        :return: dict with response body
-        """
-        return self.session.post(Paths.PLAN_ISSUES.format(test_plan_key),
-                                 json={"issueId": issue_id})
-
-    def create_test_cycle_link(self, test_plan_key: Union[str, int], test_cycle_id: int):
-        """
-        Creates a link between a test plan and a test cycle.
-
-        :param test_plan_key: The ID or key of the test plan
-        :param test_cycle_id: The ID or key of the test cycle
-        :return: dict with response body
-        """
-        return self.session.post(Paths.PLAN_CYCLES.format(test_plan_key),
-                                 json={"testCycleIdOrKey": test_cycle_id})
-
-
 class TestExecutionEndpoints(EndpointTemplate):
     """Api wrapper for "Test Execution" endpoints"""
 
@@ -376,6 +304,26 @@ class TestExecutionEndpoints(EndpointTemplate):
         """
         return self.session.get_paginated(Paths.EXECUTIONS_STEPS.format(test_execution_id_or_key),
                                           params=kwargs)
+
+    def update_test_steps(self, test_execution_id_or_key: Union[str, int], **kwargs):
+        """
+        Updates the test steps for the given test execution.
+
+        :param test_execution_id_or_key: The ID or key of the test execution.
+        Test execution keys are of the format [A-Z]+-E[0-9]+
+        :return: dict with response body
+        """
+        raise NotImplementedError
+
+    def sync_test_execution(self, test_execution_id_or_key: Union[str, int], **kwargs):
+        """
+        Sync test execution with content of test case script.
+
+        :param test_execution_id_or_key: The ID or key of the test execution.
+        Test execution keys are of the format [A-Z]+-E[0-9]+
+        :return: dict with response body
+        """
+        raise NotImplementedError
 
     def get_links(self, test_execution_id_or_key: Union[str, int]):
         """
@@ -545,6 +493,17 @@ class EnvironmentEndpoints(EndpointTemplate):
         """Returns all environments"""
         return self.session.get_paginated(Paths.ENVIRONMENTS, params=kwargs)
 
+    def create_environment(self, project_key: str, name: str, **kwargs):
+        """
+        Creates an environment.
+
+        :param project_key: Jira project key
+        :param name: The environment name
+        :param description: The environment description
+        :return: dict with response body
+        """
+        raise NotImplementedError
+
     def get_environment(self, environment_id: int):
         """
         Returns an environment for the given ID
@@ -554,6 +513,15 @@ class EnvironmentEndpoints(EndpointTemplate):
         """
         return self.session.get(Paths.ENVIRONMENTS_ID.format(environment_id))
 
+    def update_environment(self, environment_id: int, **kwargs):
+        """
+        Update an existing environment. Please take into account that for each
+        non-specified field the value will be cleared.
+
+        :param environment_id: Environment ID
+        :return: dict with response body
+        """
+        raise NotImplementedError
 
 class ProjectEndpoints(EndpointTemplate):
     """Api wrapper for "Project" endpoints"""
@@ -607,15 +575,6 @@ class IssueLinksEndpoints(EndpointTemplate):
         :return: dict with response body
         """
         return self.session.get(Paths.ISLINKS_CYCLES.format(issue_key))
-
-    def get_test_plans(self, issue_key: str):
-        """
-        Get test plan IDs linked to the given Jira issue.
-
-        :param issue_key: The key of the Jira issue
-        :return: dict with response body
-        """
-        return self.session.get(Paths.ISLINKS_PLANS.format(issue_key))
 
     def get_test_executions(self, issue_key: str):
         """
