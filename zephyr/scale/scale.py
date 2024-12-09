@@ -4,7 +4,7 @@ A module with the Zephyr Scale base object.
 
 import logging
 
-from zephyr.scale.zephyr_scale_session import ZephyrScaleSession
+from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
 from zephyr.scale.cloud.cloud_api import CloudApiWrapper
 from zephyr.scale.server.server_api import ServerApiWrapper
 

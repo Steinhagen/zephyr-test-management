@@ -2,8 +2,8 @@
 A module with the Zephyr Squad Cloud Api wrapper class.
 """
 import logging
-from zephyr.squad.zephyr_squad_session import ZephyrSquadSession
-from zephyr.squad.cloud import endpoints
+from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
+from zephyr.common.cloud import endpoints
 
 # pylint: disable=missing-function-docstring
 class CloudApiWrapper:
@@ -17,7 +17,7 @@ class CloudApiWrapper:
 
     :param session: ZephyrSession object with auth credentials
     """
-    def __init__(self, session: ZephyrSquadSession):
+    def __init__(self, session: ZephyrScaleSession):
         self.session = session
         self.logger = logging.getLogger(__name__)
 
@@ -25,37 +25,37 @@ class CloudApiWrapper:
     def test_cases(self):
         return endpoints.TestCaseEndpoints(self.session)
 
-    # @property
-    # def test_cycles(self):
-    #     return endpoints.TestCycleEndpoints(self.session)
+    @property
+    def test_cycles(self):
+        return endpoints.TestCycleEndpoints(self.session)
 
-    # @property
-    # def test_plans(self):
-    #     return endpoints.TestPlanEndpoints(self.session)
+    @property
+    def test_plans(self):
+        return endpoints.TestPlanEndpoints(self.session)
 
-    # @property
-    # def test_executions(self):
-    #     return endpoints.TestExecutionEndpoints(self.session)
+    @property
+    def test_executions(self):
+        return endpoints.TestExecutionEndpoints(self.session)
 
-    # @property
-    # def folders(self):
-    #     return endpoints.FolderEndpoints(self.session)
+    @property
+    def folders(self):
+        return endpoints.FolderEndpoints(self.session)
 
-    # @property
-    # def statuses(self):
-    #     return endpoints.StatusEndpoints(self.session)
+    @property
+    def statuses(self):
+        return endpoints.StatusEndpoints(self.session)
 
-    # @property
-    # def priorities(self):
-    #     return endpoints.PriorityEndpoints(self.session)
+    @property
+    def priorities(self):
+        return endpoints.PriorityEndpoints(self.session)
 
-    # @property
-    # def environments(self):
-    #     return endpoints.EnvironmentEndpoints(self.session)
+    @property
+    def environments(self):
+        return endpoints.EnvironmentEndpoints(self.session)
 
-    # @property
-    # def projects(self):
-    #     return endpoints.ProjectEndpoints(self.session)
+    @property
+    def projects(self):
+        return endpoints.ProjectEndpoints(self.session)
 
     @property
     def links(self):
@@ -65,9 +65,9 @@ class CloudApiWrapper:
     def issue_links(self):
         return endpoints.IssueLinksEndpoints(self.session)
 
-    # @property
-    # def automations(self):
-    #     return endpoints.AutomationEndpoints(self.session)
+    @property
+    def automations(self):
+        return endpoints.AutomationEndpoints(self.session)
 
     @property
     def healthcheck(self):

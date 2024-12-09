@@ -5,6 +5,7 @@ A module with the Zephyr Squad base object.
 import logging
 from sys import api_version
 
+from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
 from zephyr.squad.zephyr_squad_session import ZephyrSquadSession
 from zephyr.squad.cloud.cloud_api import CloudApiWrapper
 from zephyr.squad.server.server_api import ServerApiWrapper
@@ -29,11 +30,13 @@ class ZephyrSquad:
     """
     def __init__(self, base_url=None, api_version=API_V2, **kwargs):
         base_url = DEFAULT_BASE_URL if not base_url else base_url
-        session = ZephyrSquadSession(base_url=base_url, **kwargs)
 
         if api_version.lower() == API_V2:
+            # The API for Scale and Squad Cloud is almost identical
+            session = ZephyrScaleSession(base_url=base_url, **kwargs)
             self.api = CloudApiWrapper(session)
         elif api_version.lower() == API_V1:
+            session = ZephyrSquadSession(base_url=base_url, **kwargs)
             self.api = ServerApiWrapper(session)
             self.actions = ServerActionsWrapper(session)
         else:
