@@ -3,7 +3,7 @@ A module with the Zephyr Scale Server Api wrapper class.
 """
 import logging
 
-from zephyr.scale.zephyr_scale_session import ZephyrScaleSession
+from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
 from zephyr.scale.server import endpoints
 
 

@@ -1,19 +1,19 @@
 """
-A module with the Zephyr Scale Cloud Api wrapper class.
+A module with the Zephyr Squad Cloud Api wrapper class.
 """
 import logging
 from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
-from zephyr.scale.cloud import endpoints
+from zephyr.common.cloud import endpoints
 
-# pylint: disable=missing-function-docstring,duplicate-code
+# pylint: disable=missing-function-docstring
 class CloudApiWrapper:
     """
-    Zephyr Scale Cloud Api wrapper class. It contains API endpoint wrappers for the Zephyr Scale
+    Zephyr Squad Cloud Api wrapper class. It contains API endpoint wrappers for the Zephyr Squad
     Cloud. The wrappers are grouped by the entity they are related to.
     These wrapper groups are represented by the properties of the class.
 
     For more details on the API endpoints see docs:
-    https://support.smartbear.com/zephyr-scale-cloud/api-docs/
+    https://smartbear.portal.swaggerhub.com/zephyr-squad/
 
     :param session: ZephyrSession object with auth credentials
     """
@@ -28,10 +28,6 @@ class CloudApiWrapper:
     @property
     def test_cycles(self):
         return endpoints.TestCycleEndpoints(self.session)
-
-    @property
-    def test_plans(self):
-        return endpoints.TestPlanEndpoints(self.session)
 
     @property
     def test_executions(self):
