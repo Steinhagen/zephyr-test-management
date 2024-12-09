@@ -10,3 +10,13 @@ class ScaleCloudPaths(CloudPaths):
     # Test Cases
     CASE_VERS = "testcases/{}/versions"
     CASE_VER = "testcases/{}/versions/{}"
+
+    # Test Plans
+    PLANS = "testplans"
+    PLAN_KEY = "testplans/{}"
+    PLAN_WEBLINKS = "testplans/{}/links/weblinks"
+    PLAN_ISSUES = "testplans/{}/links/issues"
+    PLAN_CYCLES = "testplans/{}/links/testcycles"
+
+    # Issue Links
+    ISLINKS_PLANS = "issuelinks/{}/testplans"

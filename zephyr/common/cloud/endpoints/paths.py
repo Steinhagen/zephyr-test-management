@@ -3,8 +3,9 @@
 
 class CloudPaths:
     """
-    Zephyr Scale Cloud API paths based on:
+    Common Zephyr Scale and Squad Cloud API paths based on:
     https://support.smartbear.com/zephyr-scale-cloud/api-docs/
+    https://smartbear.portal.swaggerhub.com/zephyr-squad/
     """
     # Test Cases
     CASES = "testcases"
@@ -21,13 +22,6 @@ class CloudPaths:
     CYCLE_LINKS = "testcycles/{}/links"
     CYCLE_ISSUES = "testcycles/{}/links/issues"
     CYCLE_WEBLINKS = "testcycles/{}/links/weblinks"
-
-    # Test Plans
-    PLANS = "testplans"
-    PLAN_KEY = "testplans/{}"
-    PLAN_WEBLINKS = "testplans/{}/links/weblinks"
-    PLAN_ISSUES = "testplans/{}/links/issues"
-    PLAN_CYCLES = "testplans/{}/links/testcycles"
 
     # Test Executions
     EXECUTIONS = "testexecutions"
@@ -62,7 +56,6 @@ class CloudPaths:
     # Issue Links
     ISLINKS_CASES = "issuelinks/{}/testcases"
     ISLINKS_CYCLES = "issuelinks/{}/testcycles"
-    ISLINKS_PLANS = "issuelinks/{}/testplans"
     ISLINKS_EXECS = "issuelinks/{}/executions"
 
     # Automations
