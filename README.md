@@ -124,7 +124,7 @@ This library is licensed under the Apache 2.0 License.
 
 [Zephyr Scale Server API docs](https://support.smartbear.com/zephyr-scale-server/api-docs/v1/)
 
-[Zephyr Squad Cloud API docs](https://smartbear.portal.swaggerhub.com/zephyr-squad/default/introduction/)
+[Zephyr Squad Cloud API docs](https://smartbear.portal.swaggerhub.com/zephyr-squad/default/introduction)
 
 [Zephyr Squad Server API docs](https://zephyrsquadserver.docs.apiary.io/)
 
