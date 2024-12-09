@@ -80,21 +80,3 @@ class ZephyrSquadSession(ZephyrSession):
                 files.update(to_files)
 
             return self._request("post", endpoint, files=files, **kwargs)
-
-    def get_cloud_paginated(self, endpoint, params=None):
-        """Get paginated data for the Cloud version"""
-        self.logger.debug(f"Get paginated data from endpoint={endpoint} and params={params}")
-        if params is None:
-            params = {}
-
-        while True:
-            response = self.get(endpoint, params=params)
-            if "values" not in response:
-                return
-            for value in response.get("values", []):
-                yield value
-            if response.get("isLast") is True:
-                break
-            params_str = urlparse(response.get("next")).query
-            params.update(parse_qs(params_str))
-        return

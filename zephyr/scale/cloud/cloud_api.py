@@ -5,7 +5,7 @@ import logging
 from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
 from zephyr.common.cloud import endpoints
 
-# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring,duplicate-code
 class CloudApiWrapper:
     """
     Zephyr Scale Cloud Api wrapper class. It contains API endpoint wrappers for the Zephyr Scale

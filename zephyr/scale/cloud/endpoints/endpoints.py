@@ -1,16 +1,13 @@
-from json import dumps
-from typing import Union
-from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
 from zephyr.common.cloud.endpoints import TestCaseEndpoints
 from .paths import ScaleCloudPaths as Paths
 
 
 class ScaleTestCaseEndpoints(TestCaseEndpoints):
-     """
-     Api wrapper for "Test Case" endpoints
+    """
+    Api wrapper for "Test Case" endpoints
 
-     Details: https://support.smartbear.com/zephyr-scale-cloud/api-docs/#tag/Test-Cases
-     """
+    Details: https://support.smartbear.com/zephyr-scale-cloud/api-docs/#tag/Test-Cases
+    """
 
     def get_versions(self, test_case_key: str, **kwargs):
         """
@@ -21,5 +18,5 @@ class ScaleTestCaseEndpoints(TestCaseEndpoints):
                                           params=kwargs)
 
     def get_version(self, test_case_key: str, version: str):
-        """Retrieves a specific version of a test case"""
+        """Retrieves a specific version of a test case."""
         return self.session.get(Paths.CASE_VER.format(test_case_key, version))

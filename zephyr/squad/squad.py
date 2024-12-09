@@ -3,7 +3,6 @@ A module with the Zephyr Squad base object.
 """
 
 import logging
-from sys import api_version
 
 from zephyr.common.cloud.zephyr_cloud_session import ZephyrScaleSession
 from zephyr.squad.zephyr_squad_session import ZephyrSquadSession
